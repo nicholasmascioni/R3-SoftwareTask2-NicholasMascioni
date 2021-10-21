@@ -31,3 +31,6 @@ def wait_for_input():
         print("Right")
     else:
         print("See ya!")
+
+while True:
+    wait_for_input()
