@@ -3,34 +3,23 @@ from pynput import keyboard
 directions = ["w", "a", "s", "d"] # forward, left, backward, right
 speeds = [0, 1, 2, 3, 4, 5] # motor speeds
 
+direction = ""
+speed = 0
+
 def on_press(key):
-    global direction_input
-
     try:
-        if key.char in directions:
-            direction_input = key.char
-            return False # Stop listening for inputs
-    except AttributeError as ex:
-        print(ex)
-def on_release(key):
-    if key == keyboard.Key.esc:
-        return False # Stop listening when esc is pressed
+        print("Key {0} pressed".format(key.char))
+    except AttributeError:
+        print("special Key {0} pressed".format(key))
 
-def wait_for_input():
-    listener = keyboard.Listener(on_press=on_press, on_release=on_release)
-    listener.start()
+def on_release(key):
+    print("{0} released".format(key))
+    if key == keyboard.Key.esc:
+        return False
+
+with keyboard.Listener(
+        on_press=on_press,
+        on_release=on_release) as listener:
     listener.join()
 
-    if direction_input == "w":
-        print("Forward")
-    elif direction_input == "s":
-        print("Backward")
-    elif direction_input == "a":
-        print("Left")
-    elif direction_input == "d":
-        print("Right")
-    else:
-        print("See ya!")
-
-while True:
-    wait_for_input()
+keyboard.Listener()
