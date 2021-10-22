@@ -8,7 +8,12 @@ speed = 0
 
 def on_press(key):
     try:
-        print("Key {0} pressed".format(key.char))
+        if key in directions:
+            print("Key {0} pressed".format(key.char))
+            direction = key
+        elif key in speeds:
+            print("Key {0} pressed".format(key.char))
+            speed = key
     except AttributeError:
         print("special Key {0} pressed".format(key))
 
@@ -23,3 +28,7 @@ with keyboard.Listener(
     listener.join()
 
 keyboard.Listener()
+
+while True:
+    print(direction)
+    print(speed)
