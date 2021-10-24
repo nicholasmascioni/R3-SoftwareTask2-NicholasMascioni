@@ -7,8 +7,14 @@ direction = ""
 speed = 0
 
 def on_press(key):
-    if key.char in directions or int(key.char) in speeds:
-        print(key)
+    if str(key.char) in directions:
+        direction = str(key)
+        print(direction)
+    elif int(key.char) in speeds:
+        speed = key
+        print(speed)
+    else:
+        pass
 
 with Listener(on_press=on_press) as listener:
     listener.join()
