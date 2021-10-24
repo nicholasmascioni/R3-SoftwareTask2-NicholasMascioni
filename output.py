@@ -1,3 +1,8 @@
+'''
+Socket Programming in Python tutorial
+from realpython.com
+'''
+
 import socket
 
 HOST = "127.0.0.1"
