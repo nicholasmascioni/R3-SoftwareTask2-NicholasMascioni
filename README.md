@@ -2,6 +2,8 @@
 
 For this project I was tasked with creating two programs: one to act as a client and one to act as a server.
 
+Video Link: https://drive.google.com/file/d/1N9h_uj7-VmuF6tp4eHqY_GPghTkxJNJ4/view?usp=sharing
+
 ## The Client Program
 The goal of the client program was to monitor keyboard inputs to simulate controlling a rover. I used the pynput library to assist in monitoring the keyboard to check if specific keys were pressed.
 
